@@ -16,9 +16,13 @@
 class ControllerBase {
 	public $nomeModel;
 
+    public function __construct() {
+		debug(__CLASS__."::".__FUNCTION__."()");
+		$this->model = new $this->nomeModel;
+	}
+	
 	public function chamarView($nomeView, $info=array()) {
 		debug(__CLASS__."::".__FUNCTION__."($nomeView)");
-							//pega o info['dados'] e joga dentro de $chave que vira um array
 		foreach ($info as $chave=>$valor) {
 			$$chave=$info[$chave];
 		}

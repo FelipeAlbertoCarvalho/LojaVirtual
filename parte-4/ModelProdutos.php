@@ -13,3 +13,4 @@
 */
 class ModelProduto extends ModelCSV {
 public $arquivoCSV='produto.csv';
+}

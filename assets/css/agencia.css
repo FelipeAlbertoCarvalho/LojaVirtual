@@ -1,0 +1,161 @@
+h1 {
+  text-transform: uppercase;
+}
+.campeonato {
+  background-color: #28a745;
+}
+.navbar-light .navbar-brand {
+  color: #857b44;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+.navbar-light .navbar-brand:hover {
+  color: #e2c262;
+}
+#menu ul li a {
+  color: #857b44;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.8em;
+  letter-spacing: 2px;
+}
+#menu ul li a:hover {
+  color: #e2c262;
+}
+header nav div a {
+  color: #857b44;
+}
+header nav div a:hover {
+  color: #e2c262;
+}
+.popup-login {
+  width: 20%;
+  right: 0;
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  display: none;
+  position: absolute;
+  z-index: 1;
+  background-color: rgba(red, green, blue, 0.6);
+}
+.mostrarPopupLogin {
+  display: block;
+}
+.btn-entrar {
+  background: white;
+  border: 1px solid #28a745;
+  border-radius: 5px;
+  color: #28a745;
+}
+.btn-entrar:hover {
+  color: #0b4118;
+}
+.popup-login .btn-fechar {
+  float: right;
+  border: none;
+  background: white;
+}
+.banner {
+  position: relative;
+}
+.banner img {
+  height: 330px;
+  width: 100%;
+}
+.banner span {
+  position: absolute;
+  top: 40%;
+  cursor: pointer;
+  font-size: 50px;
+  color: white;
+  padding: 0 30px;
+  opacity: 0.6;
+  height: 80px;
+  border-radius: 20px;
+  transition: 0.6s ease;
+  font-weight: bold;
+}
+.banner span:hover {
+  transition: background 0.6s;
+  background: #383837;
+}
+.banner span#btn-prox {
+  right: 0;
+}
+
+.firstFooter {
+  clear: both;
+  background-color: #3b3b3b;
+  height: 350px;
+}
+.firstFooter h5 {
+  color: #e2c262;
+  margin-top: 50px;
+}
+.firstFooter h4 {
+  color: #e2c262;
+  text-transform: uppercase;
+  font-size: 1em;
+  letter-spacing: 2px;
+}
+.firstFooter img {
+  width: 50%;
+  margin-top: 50px;
+}
+.links-footer {
+  margin-top: 50px;
+}
+.links-footer li {
+  color: #857b44;
+}
+.links-footer li a {
+  color: #857b44;
+  font-size: 0.8em;
+}
+.links-footer li a:hover {
+  color: #e2c262;
+}
+.icons-footer {
+  margin-top: 50px;
+}
+.icons-footer a {
+  margin-left: 20px;
+  font-size: 2em;
+  color: #857b44;
+}
+.footer-endereco {
+  margin-top: 90px;
+}
+.footer-endereco p {
+  margin-left: 20px;
+  color: #857b44;
+  font-size: 0.8em;
+  float: left;
+}
+.footer-endereco img {
+  width: 40px;
+  position: absolute;
+  left: 50%;
+  margin-top: 60px;
+}
+.icons-footer a:hover {
+  color: #e2c262;
+}
+.secondFooter {
+  clear: both;
+  background-color: #1b1a1a;
+  height: 40px;
+}
+.secondFooter p {
+  color: white;
+  text-align: center;
+  font-weight: lighter;
+  font-size: 0.9em;
+  line-height: 40px;
+  margin-bottom: 0;
+}
+
