@@ -17,7 +17,7 @@
   </nav>
 
   <nav class="navbar navbar-expand-lg navbar-light">
-      <a class="navbar-brand" href="<?php echo BASE_URL; ?>users">Loja Virtual</a>
+      <a class="navbar-brand" href="<?php echo BASE_URL; ?>usuario">Loja Virtual</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -31,9 +31,9 @@
               Produtos
             </a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="<?php echo BASE_URL; ?>produto/adicionar">Adicionar</a>
-              <a class="dropdown-item" href="<?php echo BASE_URL; ?>produto/alterar">Alterar</a>
-              <a class="dropdown-item" href="<?php echo BASE_URL; ?>produto/deletar">Deletar</a>
+              <a class="dropdown-item" href="<?php echo BASE_URL; ?>produto/adiciona">Adicionar</a>
+              <a class="dropdown-item" href="<?php echo BASE_URL; ?>produto/altera">Alterar</a>
+              <a class="dropdown-item" href="<?php echo BASE_URL; ?>produto/deleta">Deletar</a>
             </div>
           </li>
           <li class="nav-item dropdown">
@@ -41,9 +41,9 @@
               Usuários
             </a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="<?php echo BASE_URL; ?>usuario/adicionar">Adicionar</a>
-              <a class="dropdown-item" href="<?php echo BASE_URL; ?>usuario/editar">Alterar</a>
-              <a class="dropdown-item" href="<?php echo BASE_URL; ?>usuario/deletar">Deletar</a>
+              <a class="dropdown-item" href="<?php echo BASE_URL; ?>usuario/adiciona">Adicionar</a>
+              <a class="dropdown-item" href="<?php echo BASE_URL; ?>usuario/altera">Alterar</a>
+              <a class="dropdown-item" href="<?php echo BASE_URL; ?>usuario/deleta">Deletar</a>
             </div>
           </li>
           <li class="nav-item">
@@ -51,9 +51,6 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="<?php echo BASE_URL; ?>relatorio">Relátorio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="<?php echo BASE_URL; ?>contatos">Contatos</a>
           </li>
         </ul>
       </div>

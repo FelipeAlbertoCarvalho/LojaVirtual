@@ -6,7 +6,7 @@
     <div class="col-md-6 m-auto">
 
       <legend>Dados do Cliente</legend><br>
-
+      
       <div class="form-group">
         <label for="nomePresidente">Nome:</label>
         <input type="text" id="nome" name="nome" class="form-control">

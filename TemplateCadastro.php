@@ -22,28 +22,45 @@
   </nav>
   <!--Fim nav upper-->
 
+  <!--popup form login-->
+  <div class="popup-login" id="popupLogin">
+      <button class="btn-fechar" id="btn-fechar"><i class="fas fa-times"></i></button>
+      <form action="<?php echo BASE_URL; ?>Usuario" method="post">
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" class="form-control form-control-sm" name="email" id="email">
+        </div>
+        <div class="form-group">
+          <label for="senha">Senha:</label>
+          <input type="password" class="form-control form-control-sm" name="senha" id="senha">
+        </div>
+        <input class="btn-entrar" type="submit" name="logar">
+      </form>
+    </div>
+    <!--Fim popup login-->
+
   <!--nav main-->
   <nav class="navbar navbar-expand-lg navbar-light">
-    <a class="navbar-brand" href="<?php echo BASE_URL; ?>">Agência K10</a>
+    <a class="navbar-brand" href="<?php echo BASE_URL; ?>">Loja Virtual</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="menu">
       <ul class="navbar-nav m-auto">
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo BASE_URL; ?>">Home</a>
+          <a class="nav-link" href="<?php echo BASE_URL; ?>usuario">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="<?php echo BASE_URL; ?>Cadastro">Cadastrar</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo BASE_URL; ?>produtos">Produtos</a>
+          <a class="nav-link" href="<?php echo BASE_URL; ?>pedido">Meus Pedidos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo BASE_URL; ?>sobre">Sobre</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="<?php echo BASE_URL; ?>contatos">Contatos</a>
+          <a class="nav-link" href="<?php echo BASE_URL; ?>carrinho">
+            <i class="fas fa-shopping-cart"></i>
+            <?php echo $_SESSION['qtde_itens_carrinho'];?>
+          </a>
         </li>
       </ul>
     </div>
@@ -56,16 +73,5 @@
 é o qeu foi passado para no parametro da funcao chamarTemplateView -->
 
 <?php require_once $viewNome.'.php';?>
-
-<!-- -->
-
-<?php
-$user = array("id" => 1);
-?>
-
-<a href="<?php echo BASE_URL; ?>Cadastro/del/<?php echo $user["id"] ?>">Deletar</a>
-
-<?php
-$user = array("id" => 1); ?>
 
 <?php include 'includes/scripts.php';?>

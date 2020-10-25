@@ -20,7 +20,7 @@ class ControllerCadastro extends Controller{
     $usuario->setNome($_POST['nome']);
     $usuario->setEmail($_POST['email']);
     $usuario->setSenha($_POST['senha']);
-    //$usuario->setNascimento($_POST['nascimento']);
+    $usuario->setNascimento($_POST['nascimento']);
     $usuario->setNivel($_POST['nivel']);
 
     $usuario->inserirUsuario();

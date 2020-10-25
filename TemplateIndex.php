@@ -51,16 +51,7 @@
           <a class="nav-link" href="<?php echo BASE_URL; ?>">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo BASE_URL; ?>Cadastro">Cadastrar</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="<?php echo BASE_URL; ?>produtos">Produtos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="<?php echo BASE_URL; ?>sobre">Sobre</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="<?php echo BASE_URL; ?>contatos">Contatos</a>
+          <a class="nav-link" href="<?php echo BASE_URL; ?>cadastro">Cadastrar</a>
         </li>
       </ul>
     </div>
@@ -75,15 +66,5 @@
 
 <?php require_once $viewNome.'.php';?>
 
-<!-- -->
 
-<?php
-$user = array("id" => 1);
-?>
-
-<a href="<?php echo BASE_URL; ?>Cadastro/del/<?php echo $user["id"] ?>">Deletar</a>
-
-<?php
-$user = array("id" => 1); ?>
-
-<?php include 'includes/scripts.php';?>
+<?php require 'includes/scripts.php'; ?>
