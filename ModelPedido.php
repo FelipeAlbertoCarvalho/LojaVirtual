@@ -54,6 +54,69 @@ class ModelPedido extends Model{
     }
   }
 
+  public function buscarPedidoId($id = null){
+    if($id == null){
+      $sql = "SELECT *
+              FROM pedido";
+
+      $array = $this->conn->query($sql);
+
+      if ($array->rowCount() > 0) {
+      return $array->fetchAll();
+      } else {
+      return array();
+      }
+    } else {
+      $sql = "SELECT *
+              FROM pedido
+              WHERE id = $id";
+
+      $array = $this->conn->query($sql);
+
+      if ($array->rowCount() > 0) {
+        return $array->fetch();
+      } else {
+        return array();
+      }
+    }
+  }
+
+  public function buscarUsuariosMaisConsomem(){
+    $sql = "SELECT nome, temp.*
+            FROM usuario, (
+              SELECT  sum(valor) AS soma_pedido, 
+                      count(id) AS qtde_pedido, 
+                      id_cliente, pedido.id AS id_ped
+              FROM pedido 
+              WHERE status_pedido != 'Cancelado'
+              GROUP BY id_cliente 
+            ) as temp 
+            WHERE id = temp.id_cliente
+            ORDER BY soma_pedido DESC;";
+    
+    $array = $this->conn->query($sql);
+
+    if ($array->rowCount() > 0) {
+      return $array->fetchAll();
+    } else {
+      return array();
+    }
+  }
+
+  public function buscarTotalVendido(){
+    $sql = "SELECT sum(valor) as soma_total, 
+            count(id) qtde_pedidos 
+            FROM pedido";
+    
+    $array = $this->conn->query($sql);
+
+    if ($array->rowCount() > 0) {
+      return $array->fetch();
+    } else {
+      return array();
+    }
+  }
+
   public function update($id){
     $sql = "UPDATE pedido
               SET status_pedido = ?
@@ -62,6 +125,23 @@ class ModelPedido extends Model{
       $stmt = $this->conn->prepare($sql);
       // $stmt->bindValue(1, $this->getTitulo());
       // $stmt->bindValue(2, $this->getDescricao());
+      $stmt->execute();
+  }
+
+  public function updateStatus(){
+    $sql = "UPDATE pedido
+              SET status_pedido = ?
+              WHERE id = ?";
+      
+      $stmt = $this->conn->prepare($sql);
+      $stmt->bindValue(2, $this->getId());
+      $stmt->bindValue(1, $this->getStatusPedido());
+      $ret = $stmt->execute();
+      if($ret == 1){
+        return $ret;
+      } else {
+        return 0;
+      }
   }
 
   public function setId($id){

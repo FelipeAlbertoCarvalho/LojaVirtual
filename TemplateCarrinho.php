@@ -18,7 +18,7 @@
 
 <!--nav main-->
 <nav class="navbar navbar-expand-lg navbar-light">
-    <a class="navbar-brand" href="<?php echo BASE_URL; ?>">Loja Virtual</a>
+    <a class="navbar-brand" href="<?php echo BASE_URL; ?>">Agência K10</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu">
       <span class="navbar-toggler-icon"></span>
     </button>

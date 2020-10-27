@@ -12,6 +12,9 @@ class ControllerPedido extends Controller{
   }
 
   public function index(){
+    if(isset($_REQUEST['id'])){
+      $param = $_REQUEST['id'];
+    }
     //mostrar seus pedidos , se ele tiver
     //é qusae a mesma coisa que mostra o carrinho la mas dai eu mostro apenas 
     //algumas coisa ou todas com o pedido fechado?
@@ -19,6 +22,7 @@ class ControllerPedido extends Controller{
 
     if(!$this->usuario->isLoggedAdmin()){
       $this->pedido = new ModelPedido();
+      
       $dados = $this->pedido->buscarPedido($_SESSION['id_usuario']);
       $this->chamarTemplateView('ViewPedido', $dados);
 
@@ -26,9 +30,13 @@ class ControllerPedido extends Controller{
       $this->nomeTemplate = 'TemplateAdmin';
       $this->pedido = new ModelPedido();
       
-      $dados = $this->pedido->buscarPedido();
-
-      $this->chamarTemplateView('ViewPedidoAdmin', $dados);
+      if(isset($param)){
+        $dados = $this->pedido->buscarPedido($param);
+        $this->chamarTemplateView('ViewPedido', $dados);
+      } else {
+        $dados = $this->pedido->buscarPedido();
+        $this->chamarTemplateView('ViewPedidoAdmin', $dados);
+      }
     } else {
       header('Location: ' . BASE_URL);
     }
@@ -84,8 +92,28 @@ class ControllerPedido extends Controller{
     $this->pedido = new ModelPedido();
 
     $dados = $item->buscarItensPedido($id_pedido);
-
+    
     $this->chamarTemplateView('ViewPedidoDetalhes', $dados);
+  }
+
+  public function updateStatus(){
+    //salvo os status no baco de dados apenas e volta pra mesma tela atualizada
+    $this->pedido = new ModelPedido();
+    $this->usuario = new ModelUsuario();
+
+    if($this->usuario->isLoggedAdmin()){
+
+      $this->pedido->setId($_POST['id']);
+      $this->pedido->setStatusPedido($_POST['status']);
+      
+      if($this->pedido->updateStatus() == 1){
+        header('Location: ' . BASE_URL . 'pedido');
+      } else {
+        header('Location: ' . BASE_URL);
+      }
+    } else {
+      header('Location ' . BASE_URL);
+    }
   }
 
   public function pedidoRealizado(){
@@ -94,8 +122,18 @@ class ControllerPedido extends Controller{
 
   }
 
-  public function altera(){
+  public function altera($id_pedido = null){
   //lista apenas aquele pedido e pode alterar o status
+    $this->pedido = new ModelPedido();
+    $this->usuario = new ModelUsuario();
+
+    if($this->usuario->isLoggedAdmin()){
+      $dados = $this->pedido->buscarPedidoId($id_pedido);
+      $this->nomeTemplate = 'TemplateAdmin';
+      $this->chamarTemplateView('ViewAlteraPedido', $dados);
+    } else {
+      header('Location ' . BASE_URL);
+    }
   }
 
   public function alterar(){
@@ -110,8 +148,5 @@ class ControllerPedido extends Controller{
 
   }
 
-  public function salvarStatus($id){
-    
-  }
 
 }

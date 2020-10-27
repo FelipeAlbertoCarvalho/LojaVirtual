@@ -28,16 +28,22 @@ class ModelItem extends Model{
   public function buscarItensPedido($id_pedido = null){
     
     if($id_pedido != null){
-      $sql = "SELECT item.id_produto, item.id_pedido, item.preco, pedido.id_cliente,
-                      item.quantidade, data_pedido, pedido.valor, 
-                      status_pedido, titulo, url_img, rua, numero, 
-                      bairro, cidade, cep 
-              FROM item, produto, endereco, pedido
-              WHERE item.id_produto = produto.id 
-                && 
-              item.id_pedido = $id_pedido
-                &&
-              item.id_pedido = endereco.id_pedido";
+        $sql = "SELECT rua, cep, cidade, estado, numero, bairro, tudoJunto.* 
+                FROM endereco, (
+                  SELECT id_pedido, id_produto, id_cliente, titulo, data_pedido,
+                        status_pedido, itemPed.preco, quantidade, url_img
+                  FROM produto, (
+                    SELECT id_pedido, id_produto, quantidade, preco, id_cliente,
+                          data_pedido, status_pedido, valor 
+                    FROM item, (
+                        SELECT * 
+                        FROM pedido 
+                          WHERE id = $id_pedido
+                        ) AS ped 
+                        WHERE id_pedido = $id_pedido
+                    ) AS itemPed 
+                  WHERE produto.id = itemPed.id_produto) AS tudoJunto 
+                WHERE endereco.id_pedido = $id_pedido";
 
       $array = $this->conn->query($sql);
 
@@ -57,6 +63,22 @@ class ModelItem extends Model{
       } else {
         return array();
       }
+    }
+  }
+
+  public function buscarItensMaisVendidos(){
+    $sql = "SELECT id_produto, titulo, count(id_produto) AS contador_produto, 
+            sum(item.preco) AS soma 
+            FROM item, produto 
+            WHERE item.id_produto = produto.id 
+            GROUP BY id_produto";
+    
+    $array = $this->conn->query($sql);
+
+    if ($array->rowCount() > 0) {
+      return $array->fetchAll();
+    } else {
+      return array();
     }
   }
 

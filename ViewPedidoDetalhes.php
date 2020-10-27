@@ -18,14 +18,16 @@
       </thead>
       <tbody>
 
-        <?php $i=1; foreach ($dados as $dado) : ?>
+        <?php $i=1; foreach ($dados as $dado) :
+          $date = date_create($dado['data_pedido']);
+        ?>
           
           <tr>
             <th class="align-middle"scope="row"><?php echo $i ?></th>
             <td class="align-middle"><?php echo $dado['id_pedido']; ?></td>
             <td class="align-middle"> <img src="<?php echo BASE_URL; ?>assets/img/<?php echo $dado['url_img'] ?>" width="75"></td>
             <td class="align-middle"><?php echo $dado['id_cliente']; ?></td>
-            <td class="align-middle"><?php echo $dado['data_pedido']; ?></td>
+            <td class="align-middle"><?php echo date_format($date,"d/m/Y") ?></td>
             <td class="align-middle"><?php echo $dado['status_pedido']; ?></td>
             <td class="align-middle"><?php echo $dado['quantidade']; ?></td>
             <td class="align-middle"><?php echo  number_format($dado['preco'], 2); ?></td>
@@ -37,4 +39,7 @@
     </table>
     <p> Endereço da Entrega : <?php echo $dados[0]['rua'] . ' ' . $dados[0]['numero'] . ' , ' . $dados[0]['bairro'] . ' - ' . $dados[0]['cidade'] . ' CEP : ' . $dados[0]['cep'] ?></p>
   </div>
+  <button type="button" class="btn btn-secondary" onClick="history.go(-1)" >
+      Voltar
+    </button> 
 </div>

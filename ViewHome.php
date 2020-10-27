@@ -1,4 +1,5 @@
 <div class="album py-5 bg-light">
+  
   <div class="container">
 
     <div class="row">
@@ -12,7 +13,7 @@
           
           <h5 class="card-title"><?php echo $produto['titulo']; ?></h5>
           <a href="#" id="modalImg" onclick="modalImg(<?php echo $produto['id']; ?>);" data-toggle="modal" data-target=".bd-example-modal-lg">
-            <img src="<?php echo BASE_URL; ?>assets/img/<?php echo $produto['url_img']; ?>" width="350" height="200">
+            <img src="<?php echo BASE_URL; ?>assets/img/<?php echo $produto['url_img']; ?>" width="350">
           </a>
           <p class="card-text"><?php echo $produto["descricao"] ?></p>
           <a href="#" class="btn btn-primary" onclick="addCar(<?php echo $produto['id'] ?>)">Adicionar ao Carrinho</a>

@@ -39,28 +39,19 @@
     </div>
     <!--Fim popup login-->
 
-  <!--nav main-->
-  <nav class="navbar navbar-expand-lg navbar-light">
-    <a class="navbar-brand" href="<?php echo BASE_URL; ?>">Loja Virtual</a>
+ <!--nav main-->
+ <nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="<?php echo BASE_URL; ?>">Agência K10</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="menu">
       <ul class="navbar-nav m-auto">
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo BASE_URL; ?>usuario">Home</a>
+          <a class="nav-link" href="<?php echo BASE_URL; ?>">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo BASE_URL; ?>Cadastro">Cadastrar</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="<?php echo BASE_URL; ?>pedido">Meus Pedidos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="<?php echo BASE_URL; ?>carrinho">
-            <i class="fas fa-shopping-cart"></i>
-            <?php echo $_SESSION['qtde_itens_carrinho'];?>
-          </a>
+          <a class="nav-link" href="<?php echo BASE_URL; ?>cadastro">Cadastrar</a>
         </li>
       </ul>
     </div>

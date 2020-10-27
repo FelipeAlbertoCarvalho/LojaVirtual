@@ -14,13 +14,9 @@
       <th>Valor (R$)</th>
       <th></th>
       <th></th>
-      <th></th>
     </tr>
     </thead>
     <tbody>
-  <script>
-    var i = 1;
-  </script>
       <?php $i=1; foreach ($dados as $dado) : ?>
         
         <tr>
@@ -30,9 +26,8 @@
           <td><?php echo $dado['data_pedido']; ?></td>
           <td><?php echo $dado['status_pedido']; ?></td>
           <td><?php echo  number_format($dado['valor'], 2); ?></td>
-          <td><button class="btn btn-info" onclick="alterarStatus(this)"> Alterar </button></td>
+          <td><a class="btn btn-info" href="<?php echo BASE_URL; ?>pedido/altera/<?php echo $dado['id']; ?>">Alterar</a></td>
           <td><a class="btn btn-danger" href="<?php echo BASE_URL; ?>pedido/deleta/<?php echo $dado['id']; ?>">Excluir</a></td>
-          <td><a class="btn btn-success" href="<?php echo BASE_URL; ?>pedido/salvarStatus/<?php echo $dado['id']; ?>">Salvar</a></td>
           <input type="hidden" name="<?php echo $dado['id']; ?>">
         </tr>  
         

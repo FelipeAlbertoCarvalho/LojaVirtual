@@ -24,9 +24,12 @@ class ModelUsuario extends Model
     $stmt->bindValue(3, $this->getSenha());
     $stmt->bindValue(4, $this->getNivel());
     $stmt->bindValue(5, $this->getNascimento());
-    $retorno = $stmt->execute();
-    // return $this->conn->lastInsertId();
-    return $retorno;
+    
+    if($stmt->execute()){
+      return 1;
+    } else {
+      return 0;
+    }
   }
 
   public function isLogged()
