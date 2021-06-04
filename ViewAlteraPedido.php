@@ -35,7 +35,7 @@
               <option value="Entregue">Entregue</option>
             </select>
           </td>
-          <td><?php echo  number_format($dados['valor'], 2); ?></td>
+          <td><?php echo number_format($dados['valor'], 2,',','.'); ?></td>
           <td><button type="submit" class="btn btn-success" >Salvar</button></td>
         </tr>  
         <input type="hidden" name='id' value="<?php echo $dados['id']; ?>">

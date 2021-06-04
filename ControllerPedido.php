@@ -144,8 +144,18 @@ class ControllerPedido extends Controller{
 
   }
 
-  public function deletar(){
+  public function deletar($id_pedido = null){
+    //excluir apenas se for cancelado
+    $this->pedido = new ModelPedido();
+    $this->usuario = new ModelUsuario();
 
+    if($this->usuario->isLoggedAdmin()){
+      $this->pedido->setId($id_pedido);
+      $this->pedido->deletarPedidoCancelado();
+
+    } else {
+      header('Location ' . BASE_URL);
+    }
   }
 
 

@@ -20,3 +20,4 @@ function salvarStatus(elemento) {
   const tableRow = elemento.parentNode.parentNode;
   console.log(tableRow.children[4].text());
 }
+

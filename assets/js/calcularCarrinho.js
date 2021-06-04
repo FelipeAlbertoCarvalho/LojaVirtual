@@ -12,7 +12,7 @@ function somarPrecoProduto(elemento){
   var total = preco * qtde ;
   total = total.toFixed(2);
 
-  var totalRow = tableRow.children[7].innerHTML = total;
+  var totalRow = tableRow.children[5].innerHTML = total;
   
   somaTotalPedido();
 }
@@ -33,7 +33,7 @@ function calcularPrecoProduto(elemento){
   var total = preco * qtde ;
   total = total.toFixed(2);
 
-  var totalRow = tableRow.children[7].innerHTML = total;
+  var totalRow = tableRow.children[6].innerHTML = total;
   
   somaTotalPedido();
   

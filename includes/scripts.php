@@ -10,6 +10,7 @@
 <script src="<?php echo BASE_URL; ?>assets/js/calcularCarrinho.js"></script>
 <script src="<?php echo BASE_URL; ?>assets/js/alterarStatus.js"></script>
 <script src="<?php echo BASE_URL; ?>assets/js/buscaCep.js"></script>
+<script src="<?php echo BASE_URL; ?>assets/js/scriptECM.js"></script>
 </body>
 
 </html>

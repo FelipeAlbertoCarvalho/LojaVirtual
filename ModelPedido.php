@@ -144,6 +144,18 @@ class ModelPedido extends Model{
       }
   }
 
+  public function deletarPedidoCancelado(){
+
+    $sql = "DELETE 
+            FROM pedido 
+            WHERE id = ? 
+            AND status_pedido != 'Cancelado'";
+
+    $stmt = $this->conn->prepare($sql);
+    $stmt->bindValue(1, $this->getId());
+
+  }
+
   public function setId($id){
     $this->id = $id;
   }

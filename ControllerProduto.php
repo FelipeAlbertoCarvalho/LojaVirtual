@@ -175,15 +175,24 @@ class ControllerProduto extends Controller{
   }
 
   public function deletar($id){ //mosra todos os produtos cadastrados
+    $dados = array();
     $this->usuario = new ModelUsuario();
 
     if($this->usuario->isLoggedAdmin()) {
       $this->produto = new ModelProduto();
       $retorno = $this->produto->deletar($id);
 
-      $pageSuccess = '/produto/deleta';
-      $pageNotSuccess = 'usuario';
-      $this->encaminhar($retorno, $pageSuccess, $pageNotSuccess);
+      if ($retorno) return;
+      else {
+        $dadosSec["errors"] = "Error ao deletar";
+        $dados = $this->produto->buscar();
+        $this->nomeTemplate = 'TemplateAdmin';
+        $this->chamarTemplateView('ViewDeletaProduto', $dados, $dadosSec); 
+      }
+
+      // $pageSuccess = '/produto/deleta';
+      // $pageNotSuccess = 'usuario';
+      // $this->encaminhar($retorno, $pageSuccess, $pageNotSuccess);
      
     }
   }

@@ -141,13 +141,27 @@ class ModelProduto extends Model{
   }
 
   public function deletar($id){
+    
+    // $retorno = $stmt->execute();
+
+  try {
     $sql = "DELETE FROM produto
             WHERE id = ?";
     $stmt = $this->conn->prepare($sql);
     $stmt->bindParam(1, $id);
-    $retorno = $stmt->execute();
-    
-    return $retorno;
+    $stmt->execute();
+  } catch (PDOException $e) {
+    // echo "<script>alert('Erro');</script>";
+    return false;
+  }
+  return true;
+
+    //IRMAO É AQUI O ROLE QUE TEM QUE VER 
+
+    // if($retorno != 1 ){
+    //   echo "deu rim"; die();
+    // }
+    // return $retorno;
   }
 
   public function setId($id){

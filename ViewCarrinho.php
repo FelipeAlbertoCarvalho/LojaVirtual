@@ -13,8 +13,6 @@
           <th class="align-middle">Preço Unitário (R$)</th>
           <th class="align-middle">Quantidade</th>
           <th class="align-middle">Preço (R$)</th>
-          <th class="align-middle">Adicionar</th>
-          <th class="align-middle">Remover</th>
         </tr>
         </thead>
         <tbody>
@@ -34,22 +32,14 @@
               <td  class="align-middle"><?php echo $dado['titulo']; ?></td>
               <td  class="align-middle"><?php echo $dado['preco']; ?></td>
               <td  class="align-middle"> 
-                <input class="form-control" name="qtde_comprando<?php echo $i; ?>" id="qtde_comprado<?php echo $i; ?>" type="number" value="<?php echo $dado['qtde_produto_carrinho']; ?>" min="0" max="<?php echo $dado['qtde']; ?>">
+                <input class="form-control" onchange="somarPrecoProduto(this)" name="qtde_comprando<?php echo $i; ?>" id="qtde_comprado<?php echo $i; ?>" type="number" value="<?php echo $dado['qtde_produto_carrinho']; ?>" min="0" max="<?php echo $dado['qtde']; ?>">
               </td>
               <td  class="align-middle text-center" name="preco_acumulado"><?php echo $somaTotalProduto;?> </td>
-              <td> 
-                <input type="button" class="btn btn-success" onclick="somarPrecoProduto(this)" value="ADD">
-              </td>
-              <td> 
-                <input type="button" class="btn btn-danger" onclick="diminuirPrecoProduto(this)" value="DEL"> 
-              </td>
             </tr>  
             
           <?php $i++; endforeach; $_SESSION['total_pedido'] = $totalPedido; } ?>
             <tr class="table-dark"> 
               <th  class="align-middle" scope="row"></th>
-              <td> </td>
-              <td> </td>
               <td> </td>
               <td> </td>
               <td> </td>

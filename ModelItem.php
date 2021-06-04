@@ -71,7 +71,7 @@ class ModelItem extends Model{
             sum(item.preco) AS soma 
             FROM item, produto 
             WHERE item.id_produto = produto.id 
-            GROUP BY id_produto";
+            GROUP BY id_produto ORDER BY contador_produto DESC";
     
     $array = $this->conn->query($sql);
 

@@ -1,4 +1,10 @@
-<br>
+<div class="text-danger" id="msg-icon-close">
+  <?php if (count($dadosSec) > 0): ?>
+    <i class="fas fa-times" id="icon-close" style="cursor: pointer;"></i>
+    <p><?php echo $dadosSec["errors"]; ?></p>  
+  <?php endif; ?>
+</div>
+<br/>
 <h2 class="text-center">Deletar Produto</h2>
 <br>
 <div class="col-md-10 m-auto">

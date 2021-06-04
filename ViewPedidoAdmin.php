@@ -25,9 +25,9 @@
           <td><?php echo $dado['id_cliente']; ?></td>
           <td><?php echo $dado['data_pedido']; ?></td>
           <td><?php echo $dado['status_pedido']; ?></td>
-          <td><?php echo  number_format($dado['valor'], 2); ?></td>
+          <td><?php echo  number_format($dado['valor'], 2,',','.'); ?></td>
           <td><a class="btn btn-info" href="<?php echo BASE_URL; ?>pedido/altera/<?php echo $dado['id']; ?>">Alterar</a></td>
-          <td><a class="btn btn-danger" href="<?php echo BASE_URL; ?>pedido/deleta/<?php echo $dado['id']; ?>">Excluir</a></td>
+          <td><a class="btn btn-danger" href="<?php echo BASE_URL; ?>pedido/deletar/<?php echo $dado['id']; ?>">Excluir</a></td>
           <input type="hidden" name="<?php echo $dado['id']; ?>">
         </tr>  
         
